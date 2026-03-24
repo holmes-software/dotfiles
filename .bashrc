@@ -16,6 +16,9 @@ PS1='[\u@\h \W]\$ '
 # -----------------------------------------------------
 # VARIALBES
 # -----------------------------------------------------
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -46,8 +49,8 @@ export PATH="$PATH:$ZVM_INSTALL/"
 
 alias shutdown='systemctl poweroff'
 alias wb='~/dotfiles/waybar/launch.sh'
-alias dot="nvim ~/dotfiles"
-alias neo="nvim ~/.config/nvim"
+alias dot="cd ~/dotfiles"
+alias neo="cd ~/.config/nvim"
 alias rusty="cd ${HOME}/dev/test/rust/" # test rust
 alias ziggy="cd ${HOME}/dev/test/zig/" # test zig
 alias pythony="cd ${HOME}/dev/test/python/" # test python
