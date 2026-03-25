@@ -77,8 +77,8 @@ cp "${wallpaper}" "${img_cache}"
 # transition_type="outer"
 transition_type="random"
 
-swww clear
-swww img "${wallpaper}" \
+awww clear
+awww img "${wallpaper}" \
     --transition-bezier .43,1.19,1,.4 \
     --transition-fps=60 \
     --transition-type=$transition_type \
