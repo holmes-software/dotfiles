@@ -91,12 +91,6 @@ alias confb='nvim ~/dotfiles/.bashrc'
 alias confm='nvim ~/dotfiles/hypr/conf/monitor.conf'
 
 # -----------------------------------------------------
-# EDIT NOTES
-# -----------------------------------------------------
-
-alias resume='nvim ~/dev/notes/resume.md'
-
-# -----------------------------------------------------
 # SERVER ACCESS
 # -----------------------------------------------------
 
@@ -116,6 +110,12 @@ docker-clean() {
     docker-kill
     docker image rm -f $(docker images -q)
     docker volume rm -f $(docker volume ls -q)
+}
+
+steam-args() {
+    args='DXVK_HDR=1 gamescope -w 3440 -h 1440 -f -r 175 --hdr-enabled --hdr-itm-enabled -- %command%'
+    wl-copy "${args}"
+    echo -e "${args}\nCopied to clipboard!"
 }
 
 echo ""
