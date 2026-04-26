@@ -3,6 +3,7 @@ application/zip=org.kde.ark.desktop;
 text/plain=nvim-2.desktop;nvim.desktop;
 text/x-log=nvim.desktop;
 text/markdown=nvim-2.desktop;
+image/jpeg=gimp.desktop;
 
 [Default Applications]
 application/gml+xml=vivaldi-stable.desktop

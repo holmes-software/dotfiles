@@ -63,7 +63,7 @@ alias grep='grep --color=auto'
 # -----------------------------------------------------
 
 alias hl="start-hyprland"
-alias st="ENABLE_HDR_WSI=1 DXVK_HDR=1 gamescope --hdr-enabled --prefer-output DP-3 -w 3440 -h 1440 -e -- steam -gamepadui"
+alias st="DXVK_HDR=1 gamescope --hdr-enabled --prefer-output DP-3 -w 3440 -h 1440 -e -- steam -gamepadui"
 
 # -----------------------------------------------------
 # GIT
@@ -113,7 +113,7 @@ docker-clean() {
 }
 
 steam-args() {
-    args='DXVK_HDR=1 gamescope -w 3440 -h 1440 -f -r 175 --hdr-enabled --hdr-itm-enabled -- %command%'
+    args='LD_PRELOAD="" PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 gamescope -w 3440 -h 1440 -f -r 175 --hdr-enabled --hdr-itm-enabled -- env LD_PRELOAD="${LD_PRELOAD}" %command%'
     wl-copy "${args}"
     echo -e "${args}\nCopied to clipboard!"
 }
