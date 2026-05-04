@@ -2,7 +2,7 @@
 
 * {
     font-size:15px;
-    font-family: "CaskaydiaCove Nerd Font";
+    font-family: "CaskaydiaCove Nerd Font", "Noto Sans Symbols 2", "Noto Sans Symbols", "Noto Color Emoji";
 }
 window#waybar{
     all:unset;
