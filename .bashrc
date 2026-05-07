@@ -113,9 +113,7 @@ docker-clean() {
 }
 
 steam-args() {
-    args='LD_PRELOAD="" PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 gamescope -w 3440 -h 1440 -f -r 175 --hdr-enabled --hdr-itm-enabled -- env LD_PRELOAD="${LD_PRELOAD}" %command%'
-    wl-copy "${args}"
-    echo -e "${args}\nCopied to clipboard!"
+    ~/dotfiles/scripts/steam-args.sh "$@"
 }
 
 echo ""
