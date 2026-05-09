@@ -13,35 +13,27 @@ set -euo pipefail
 
 usage() {
     cat <<EOF
-Usage: steam-args.sh (--hdr|--no-hdr) [-f] [-h|--help]
+Usage: steam-args.sh [-i|--itm] [-f|--force] [-h|--help]
 
-Builds gamescope launch args for Steam and copies them to the clipboard.
-
-Required (one of):
-  --hdr         Include --hdr-enabled in the args.
-  --no-hdr      Include --hdr-itm-enabled in the args.
-                If neither is supplied, you will be prompted (y|n).
+Builds gamescope launch args with HDR support for Steam and copies them to the clipboard.
 
 Options:
-  -f            Include --force-grab-cursor in the args. Simply exclude if not desired.
+  -i, --itm     Include --hdr-itm-enabled in the args.
+  -f, --force   Include --force-grab-cursor in the args.
   -h, --help    Show this help message and exit.
 EOF
 }
 
-hdr=""
+itm=0
 force=0
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --hdr)
-            hdr="yes"
+        -i|--itm)
+            itm=1
             shift
             ;;
-        --no-hdr)
-            hdr="no"
-            shift
-            ;;
-        -f)
+        -f|--force)
             force=1
             shift
             ;;
@@ -57,21 +49,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-if [[ -z "$hdr" ]]; then
-    while true; do
-        read -r -p "Enable HDR? (y|n): " reply
-        case "$reply" in
-            y|Y) hdr="yes"; break ;;
-            n|N) hdr="no"; break ;;
-            *)   echo "Please answer y or n." >&2 ;;
-        esac
-    done
-fi
-
-if [[ "$hdr" == "yes" ]]; then
-    hdr_arg="--hdr-enabled"
-else
-    hdr_arg="--hdr-itm-enabled"
+itm_arg=""
+if [[ "$itm" -eq 1 ]]; then
+    itm_arg=" --hdr-itm-enabled"
 fi
 
 force_arg=""
@@ -79,7 +59,7 @@ if [[ "$force" -eq 1 ]]; then
     force_arg=" --force-grab-cursor"
 fi
 
-args="LD_PRELOAD=\"\" PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 gamescope -w 3440 -h 1440 -f -r 175 ${hdr_arg}${force_arg} -- env LD_PRELOAD=\"\${LD_PRELOAD}\" %command%"
+args="LD_PRELOAD=\"\" PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 gamescope -w 3440 -h 1440 -f -r 175 --hdr-enabled${itm_arg}${force_arg} -- env LD_PRELOAD=\"\${LD_PRELOAD}\" %command%"
 
 wl-copy "${args}"
 echo -e "${args}\nCopied to clipboard!"
