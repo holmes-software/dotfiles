@@ -59,6 +59,11 @@ case $1 in
 
 esac
 
+# Reload Hyprland so the Lua config picks up regenerated Wallust colors.
+if command -v hyprctl >/dev/null 2>&1 && [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+    hyprctl reload >/dev/null
+fi
+
 # ----------------------------------------------------- 
 # Load current pywal color scheme
 # ----------------------------------------------------- 
