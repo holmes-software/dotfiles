@@ -116,6 +116,7 @@ x-scheme-handler/unv=/home/josh/.local/share/applications/net.unvanquished.Unvan
 x-scheme-handler/webcal=vivaldi-stable.desktop
 x-scheme-handler/about=vivaldi-stable.desktop
 x-scheme-handler/unknown=vivaldi-stable.desktop
+x-scheme-handler/mailto=vivaldi-stable.desktop
 
 [Removed Associations]
 application/x-wine-extension-ini=wine-extension-ini.desktop;

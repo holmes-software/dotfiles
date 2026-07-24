@@ -48,7 +48,7 @@ export PATH="$PATH:$ZVM_INSTALL/"
 # -----------------------------------------------------
 
 alias shutdown='systemctl poweroff'
-alias wb='~/dotfiles/waybar/launch.sh'
+alias wb='~/dotfiles/waybar/scripts/launch.sh'
 alias dot="cd ~/dotfiles"
 alias neo="cd ~/.config/nvim"
 alias rusty="cd ${HOME}/dev/test/rust/" # test rust

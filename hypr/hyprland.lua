@@ -85,6 +85,8 @@ hl.monitor({
     cm = "hdr",
     supports_wide_color = 1,
     supports_hdr = 1,
+    sdrbrightness = 1.2,
+    sdrsaturation = 1.0,
 })
 
 for workspace = 1, 10 do
