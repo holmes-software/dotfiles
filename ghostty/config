@@ -54,3 +54,4 @@ keybind = ctrl+\=unbind
 keybind = ctrl+enter=unbind
 keybind = ctrl+shift+enter=unbind
 theme = "IC Orange PPL"
+command = zellij
